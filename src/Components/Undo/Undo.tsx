@@ -1,11 +1,16 @@
-const Undo = () => {
+type UndoProps = {
+  color: string;
+};
+
+const Undo = ({ color }: UndoProps) => {
   return (
     <svg
-      fill="#000000"
+      fill={color}
       height="20px"
       width="20px"
       version="1.1"
       id="Layer_1"
+      stroke="red"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 512 512"

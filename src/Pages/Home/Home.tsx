@@ -65,7 +65,7 @@ const Home = () => {
               className={styles.resetButton}
               onClick={() => setRegion("")}
             >
-              <Undo />
+              <Undo color={theme === "Light" ? "black" : "white"} />
             </button>
           </div>
         </div>
