@@ -1,0 +1,72 @@
+@import "./mixins/mixins";
+@import "./variables/variables";
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap");
+
+* {
+  font-family: "Nunito Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  outline: none;
+  border: inherit;
+  background-color: inherit;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  &--Light {
+    main {
+      background-color: $LightModeBackground;
+      color: $LightModeText;
+    }
+  }
+  &--Dark {
+    background-color: $DarkModeBackground;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+#root {
+  display: flex;
+}
+
+h1 {
+  @include fluid-type(14, 28, 320, 1440);
+}
+
+h2 {
+  @include fluid-type(16, 22, 320, 1440);
+}
+
+li {
+  @include fluid-type(14, 16, 320, 1440);
+}
+
+h3 {
+  @include fluid-type(14, 18, 320, 1440);
+}

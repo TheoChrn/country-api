@@ -1,0 +1,130 @@
+@import "../../sass/variables/variables";
+@import "./Component/Card/styles.module.scss";
+@import "./Component/Select/styles.module.scss";
+
+.homeMain {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  padding: 5vh 3.5vw;
+  .filterContainers {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    .inputContainer {
+      display: flex;
+      border-radius: 5px;
+      align-items: center;
+      padding: 5px 30px;
+      gap: 20px;
+      height: 50px;
+      input {
+        outline: none;
+        background-color: inherit;
+        border: inherit;
+        height: auto;
+        width: 100%;
+        border-radius: initial;
+      }
+    }
+  }
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    justify-content: center;
+    align-items: center;
+    gap: 8vh;
+    padding: 0 10vw;
+  }
+  .selectContainer {
+    position: relative;
+    .resetButton {
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -30px;
+    }
+  }
+}
+
+.lightTheme {
+  background-color: $LightModeBackground;
+  .homeMain {
+    .inputContainer {
+      box-shadow: 0 0 15px 1px silver;
+      background-color: $LightModeElements;
+      input {
+        color: $LightModeInput;
+      }
+    }
+    .customCard {
+      box-shadow: 0 0 15px 1px silver;
+    }
+    .customCardInfos {
+      background-color: $LightModeElements;
+    }
+    .customSelect {
+      background-color: $LightModeElements;
+      box-shadow: 0 0 15px 1px silver;
+      color: $LightModeText;
+      * {
+        color: $LightModeText;
+      }
+    }
+
+    .resetButton {
+      color: $LightModeText;
+    }
+  }
+}
+
+.darkTheme {
+  background-color: $DarkModeBackground;
+  .inputContainer {
+    box-shadow: 0 0 15px 1px $LightModeText;
+    background-color: $DarkModeElements;
+    input {
+      color: $LightModeElements;
+      &::placeholder {
+        color: $DarkModeText;
+      }
+    }
+  }
+
+  .homeMain {
+    .customCard {
+      box-shadow: 0 0 15px 1px $LightModeText;
+      border-radius: 5px;
+    }
+    .customCardInfos {
+      @extend .cardInfos;
+      background-color: $DarkModeElements;
+      color: $DarkModeText;
+    }
+    .customSelect {
+      background-color: $DarkModeElements;
+      color: $DarkModeText;
+      box-shadow: 0 0 15px 1px $LightModeText;
+    }
+
+    .resetButton {
+      color: $DarkModeText;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .homeMain {
+    .filterContainers {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cardContainer {
+      justify-content: space-between;
+      gap: 8vh;
+      padding: 0;
+    }
+  }
+}

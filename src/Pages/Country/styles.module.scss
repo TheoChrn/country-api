@@ -1,0 +1,184 @@
+@import "../../sass/variables/variables";
+@import "../../sass/mixins/mixins";
+
+@keyframes Grow {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes UnGrow {
+  from {
+    transform: scale(1.05);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.currentCountryMain {
+  padding: 6vh 3.5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 6vh;
+
+  .backButton {
+    display: flex;
+    justify-self: left;
+    width: fit-content;
+    padding: 0.3rem 1rem;
+    animation: UnGrow 200ms ease-out forwards;
+    cursor: pointer;
+
+    button {
+      cursor: pointer;
+    }
+    &:hover {
+      animation: Grow 200ms ease-out forwards;
+    }
+  }
+
+  .currentCountry {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .currentCountryFlag {
+      height: auto;
+      width: 100%;
+    }
+    .currentCountryInfos {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      h2 {
+        @include fluid-type(16, 34, 320, 1440);
+      }
+
+      .currentCountryInfosList {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        & > ul {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      .currentCountryBorders {
+        .currentCountryBordersList {
+          margin-top: 15px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+
+          li {
+            animation: UnGrow 200ms ease-out forwards;
+
+            text-align: center;
+            padding: 5px 15px;
+            &:hover {
+              animation: Grow 200ms ease-out forwards;
+            }
+          }
+        }
+      }
+    }
+  }
+  span {
+    font-weight: 800;
+  }
+}
+
+.lightTheme {
+  background-color: $LightModeBackground;
+
+  .backButton {
+    background-color: $LightModeElements;
+    box-shadow: 0 0 5px $LightModeInput;
+    color: $LightModeText;
+  }
+  .currentCountryBorders {
+    li {
+      background-color: $LightModeElements;
+      box-shadow: 0 0 5px $LightModeInput;
+    }
+  }
+}
+
+.darkTheme {
+  background-color: $DarkModeBackground;
+  .currentCountryMain {
+    * {
+      color: $DarkModeText;
+    }
+  }
+
+  .backButton {
+    background-color: $DarkModeElements;
+    color: $DarkModeText;
+    box-shadow: 0 0 10px $LightModeText;
+  }
+  .currentCountryBorders {
+    li {
+      background-color: $DarkModeElements;
+      box-shadow: 0 0 5px $LightModeText;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .currentCountryMain {
+    padding: 6vh 3.5vw;
+    .backButton {
+    }
+    .currentCountry {
+      flex-direction: row;
+      max-height: 500px;
+
+      gap: 7vw;
+      .currentCountryFlag {
+        width: 50%;
+        figure {
+          height: 100%;
+        }
+      }
+      .currentCountryInfos {
+        justify-content: center;
+        width: 50%;
+
+        .currentCountryInfosList {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          justify-content: space-between;
+          h2 {
+            flex-basis: 100%;
+          }
+          & > ul {
+            flex-basis: 1fr;
+          }
+        }
+
+        .currentCountryBorders {
+          display: flex;
+          grid-column: 1 / span 2;
+          gap: 15px;
+          align-items: start;
+
+          h3 {
+            flex-basis: 35%;
+          }
+          .currentCountryBordersList {
+            flex-basis: 100%;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import "../../../../sass/variables/variables";
+
+.card {
+  height: 350px;
+  border-radius: 30px;
+  cursor: pointer;
+  .countryFlagContainer {
+    height: 50%;
+    width: 100%;
+
+    img {
+      border-radius: 5px 5px 0 0;
+    }
+  }
+
+  .cardInfos {
+    border-radius: 0 0 5px 5px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      span {
+        font-weight: 800;
+      }
+    }
+  }
+}

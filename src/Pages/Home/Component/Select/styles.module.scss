@@ -1,0 +1,42 @@
+.select {
+  position: relative;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .selectedRegion,
+  .options {
+    padding: 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .selectedRegion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+  }
+  .options {
+    width: 100%;
+    position: absolute;
+    top: 110%;
+    box-shadow: 0 0 15px 1px silver;
+    &--hidden {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .select {
+    width: 200px;
+  }
+}
