@@ -38,12 +38,12 @@
   }
   .selectContainer {
     position: relative;
+    display: flex;
+    align-items: center;
     .resetButton {
       position: absolute;
       cursor: pointer;
-      top: 50%;
-      transform: translateY(-50%);
-      left: -30px;
+      left: 65%;
     }
   }
 }
@@ -125,6 +125,11 @@
       justify-content: space-between;
       gap: 8vh;
       padding: 0;
+    }
+    .selectContainer {
+      .resetButton {
+        left: -15%;
+      }
     }
   }
 }
