@@ -9,6 +9,7 @@ import Select from "./Component/Select/Select";
 import Loupe from "../../Components/Loupe/Loupe";
 import { CountryData } from "../../Types/Types";
 import Undo from "../../Components/Undo/Undo";
+import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState("");
